@@ -13,20 +13,10 @@ const Products = () => {
           productName: "Mahindra Thar Roxx",
           image: "https://res-console.cloudinary.com/dgp9gidsv/thumbnails/v1/image/upload/v1731925539/aXR0emR6NHh1MzFzcmhrd3FjM2E=/drilldown",
           description: "Experience the latest in mobile technology powerful processing, and an all-day battery.",
-          quantity: 0,
+          quantity: 5,
           price: 1450.0,
           discount: 10.0,
           specialPrice: 1305.0,
-        },
-        {
-          productId: 654,
-          productName: "Indian Spices Masale",
-          image: "https://res-console.cloudinary.com/dgp9gidsv/thumbnails/v1/image/upload/v1740508654/cW5mdnJ5YXV3aHc1aWNzbnphb3I=/drilldown",
-          description: "Ultra-thin laptop with Apple's M2 chip portable design.",
-          quantity: 0,
-          price: 2550.0,
-          discount: 20.0,
-          specialPrice: 2040.0,
         },
         {
             productId: 653,
@@ -36,9 +26,21 @@ const Products = () => {
             quantity: 0,
             price: 14522.0,
             discount: 10.0,
-            specialPrice: 12999.0,
+            // specialPrice: 12999.0,
         },
+
+
         {
+            productId: 654,
+            productName: "Indian Spices Masale",
+            image: "https://res-console.cloudinary.com/dgp9gidsv/thumbnails/v1/image/upload/v1740508654/cW5mdnJ5YXV3aHc1aWNzbnphb3I=/drilldown",
+            description: "Ultra-thin laptop with Apple's M2 chip portable design.",
+            quantity: 4,
+            price: 2550.0,
+            discount: 20.0,
+            specialPrice: 2040.0,
+          },
+          {
             productId: 654,
             productName: "Titan Sonata Poze ",
             image: "https://res-console.cloudinary.com/dgp9gidsv/thumbnails/v1/image/upload/v1740911134/dnR2emltYWRxenFhcmJ5Y2Rjcms=/drilldown",
@@ -48,6 +50,8 @@ const Products = () => {
             discount: 10.0,
             specialPrice: 985.0,
         }    
+
+
     ];
 
 
