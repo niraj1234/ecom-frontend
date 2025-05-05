@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
-import ProductCard from './ProductCard';
+import ProductCard from '../shared/ProductCard';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../store/actions';
+import { fetchCategories, fetchProducts } from '../../store/actions';
 import Filter from './Filter';
+import useProductFilter from '../../hooks/useProductFilter';
+import Loader from '../shared/Loader';
+import Paginations from '../shared/Paginations';
+
 
 const Products = () => {
 
@@ -13,17 +17,27 @@ const Products = () => {
     // const isLoading = false;
     // const errorMessage = '';
 
-    const { products} = useSelector(
+    const { products , categories , pagination } = useSelector(
         (state) => state.products 
     ) 
 
     const dispatch = useDispatch();
+    useProductFilter();
 
-    useEffect(()=> {
-        dispatch(fetchProducts());
-    }, [dispatch]);
+    //  Following call will be done by useProductFilter()
+    //  This was working for /public/products uri only
+    //  Now we need to send keyword too, Backend has one more endpoint for that
+    // useEffect(()=> {
+    //     dispatch(fetchProducts());
+    // }, [dispatch]);
 
     console.log(products)
+
+
+    useEffect(()=> {
+        dispatch(fetchCategories());
+    }, [dispatch]);
+
 
     // const products = [
     //     {
@@ -96,10 +110,13 @@ const Products = () => {
 
   return (
     <div className='lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto'>
-        <Filter />
+        <Filter categories = { categories ? categories : []} />
 
         {isLoading ? (
-            <p>It is loading...</p>
+            <div>
+                <Loader text={"Product is loading..."}/>
+            </div>
+
         ) : errorMessage ? (
             <div className='flex justify-center items-center h-[200px]'>
                 <FaExclamationTriangle className='text-red-500 text-3xl mr-2'/>
@@ -112,6 +129,12 @@ const Products = () => {
                         <ProductCard  key={idx} { ...item } /> 
                     )}
                 </div>
+            
+            <div className='flex justify-center pt-2 pb-2 bg-gray-300 ' >
+                <Paginations numberOfPage = {pagination?.totalPages} 
+                             totalProducts = {pagination?.totalElements} />
+            </div>
+           
            </div>
         )}
     </div>

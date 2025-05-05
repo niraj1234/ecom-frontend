@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Divider } from '@mui/material';
 import Status from './Status';
 import { MdClose, MdDone } from 'react-icons/md';
+import truncateText from '../../utils/truncateText';
 
 
 const ProductViewModal = ( {open , setOpen , product , isAvailable }) => {
@@ -45,7 +46,7 @@ const ProductViewModal = ( {open , setOpen , product , isAvailable }) => {
 
             <div className='px-6 pt-10 pb-2'>
                     <DialogTitle as="h1" className="lg:text-3xl sm:text-2xl text-xl font-semibold leading-6 text-gray-800 mb-4">
-                       {productName}
+                       {truncateText(productName , 35)}
                     </DialogTitle>
 
 
@@ -78,7 +79,7 @@ const ProductViewModal = ( {open , setOpen , product , isAvailable }) => {
         </div>
         
         <Divider />
-          <p>{description}</p>
+          <p>{truncateText(description , 200)}</p>
       </div>
     </div>
 
