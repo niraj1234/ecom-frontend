@@ -5,6 +5,8 @@ import Products from './components/products/Products'
 import { BrowserRouter  as Router , Routes ,Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import NavBar from './components/shared/NavBar';
+import About from './components/About';
+import Contact from './components/Contact';
 
 
 const notify = () => toast('This is your Toast !');
@@ -15,8 +17,10 @@ function App() {
     <Router>
         <NavBar/>
         <Routes>
-        <Route  path='/' element={<Home/>}/>
-        <Route  path='/products' element={<Products/>}/>
+          <Route  path='/' element={<Home/>}/>
+          <Route  path='/products' element={<Products/>}/>
+          <Route  path='/about' element={<About/>}/>
+          <Route  path='/contact' element={<Contact/>}/>
         </Routes>
     </Router>
 
