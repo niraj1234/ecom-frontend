@@ -4,6 +4,7 @@ import toast , {Toaster} from 'react-hot-toast'
 import Products from './components/products/Products'
 import { BrowserRouter  as Router , Routes ,Route } from 'react-router-dom';
 import Home from './components/home/Home';
+import NavBar from './components/shared/NavBar';
 
 
 const notify = () => toast('This is your Toast !');
@@ -12,6 +13,7 @@ function App() {
   return (
 
     <Router>
+        <NavBar/>
         <Routes>
         <Route  path='/' element={<Home/>}/>
         <Route  path='/products' element={<Products/>}/>
