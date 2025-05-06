@@ -7,6 +7,8 @@ import Home from './components/home/Home';
 import NavBar from './components/shared/NavBar';
 import About from './components/About';
 import Contact from './components/Contact';
+import React from 'react';
+import Cart from './components/cart/Cart';
 
 
 const notify = () => toast('This is your Toast !');
@@ -14,6 +16,7 @@ const notify = () => toast('This is your Toast !');
 function App() {
   return (
 
+    <React.Fragment>
     <Router>
         <NavBar/>
         <Routes>
@@ -21,8 +24,12 @@ function App() {
           <Route  path='/products' element={<Products/>}/>
           <Route  path='/about' element={<About/>}/>
           <Route  path='/contact' element={<Contact/>}/>
+          <Route  path='/cart' element={<Cart/>}/>
         </Routes>
     </Router>
+
+    <Toaster position='top-right' />
+    </React.Fragment>
 
 
     // <div className='bg-gray-200'>
