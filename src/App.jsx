@@ -9,6 +9,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import React from 'react';
 import Cart from './components/cart/Cart';
+import LogIn from './components/auth/Login';
 
 
 const notify = () => toast('This is your Toast !');
@@ -25,6 +26,7 @@ function App() {
           <Route  path='/about' element={<About/>}/>
           <Route  path='/contact' element={<Contact/>}/>
           <Route  path='/cart' element={<Cart/>}/>
+          <Route  path='/login' element={<LogIn/>}/>
         </Routes>
     </Router>
 
