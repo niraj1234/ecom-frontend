@@ -1,6 +1,7 @@
 import React from 'react'
 
-const btnStyles = "border-[1.2px] border-slate-800 px-3 py-1 rounded  bg-amber-100";
+const btnStyles2 = "border-[1.2px] border-slate-800 px-3 py-1 rounded  bg-amber-100";
+const btnStyles  = "border-[1.2px] border-slate-500 px-3 py-0 rounded  bg-amber-100 text-3xl font-bold";
 const SetQuantity = ({
     quantity,
     cardCounter,

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { formatPrice } from "../../utils/formatPrice";
 import { useDispatch, useSelector } from 'react-redux';
 import ItemContent from './ItemContent';
+import CartEmpty from './CartEmpty';
 
 
 
@@ -14,12 +15,12 @@ const Cart = () => {
   const newCart = { ...cart };
 
   newCart.totalPrice = cart?.reduce(
-    (acc,cur) => acc * Number(cur?.specialPrice) * Number(cur?.quantity) , 0
+    (acc,cur) => acc + Number(cur?.specialPrice) * Number(cur?.quantity) , 0
   )
 
 
   if(!cart || cart.length === 0){
-    return <h1>Cart is empty !</h1>
+    return <CartEmpty />
   };
 
   return (
@@ -61,7 +62,7 @@ const Cart = () => {
         <div className="flex text-sm gap-1 flex-col">
             <div className="flex justify-between w-full md:text-lg text-sm font-semibold">
                 <span className='text-cyan-800 text-2xl mt-2'>Subtotal</span>
-                <span className='bg-amber-300  p-2 text-4xl rounded-b-md'>{formatPrice(589)}</span>
+                <span className='bg-amber-300  p-2 text-4xl rounded-b-md'>{formatPrice(newCart?.totalPrice)}</span>
             </div>
 
             <p className="text-slate-500">
@@ -71,8 +72,8 @@ const Cart = () => {
             <Link className="w-full flex justify-end" to="/checkout">
             <button
                 onClick={() => {}}
-                className="font-semibold w-[300px] py-2 px-4 rounded-sm bg-customBlue text-white flex items-center justify-center gap-2 hover:text-gray-300 transition duration-500">
-                <MdShoppingCart size={20} />
+                className="font-semibold w-[300px] py-2 px-4 rounded-sm bg-customBlue text-cyan-700 bg-neutral-100  text-2xl flex items-center justify-center gap-2 hover:bg-cyan-800 hover:text-white transition duration-200">
+                <MdShoppingCart size={40} className='mr-2'/>
                 Checkout
             </button>
             </Link>

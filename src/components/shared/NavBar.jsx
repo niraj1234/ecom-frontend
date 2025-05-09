@@ -6,12 +6,14 @@ import { FaShoppingCart, FaSignInAlt, FaStore } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
-
+import { useSelector } from 'react-redux';
 
 
 const NavBar = () => {
     const path = useLocation().pathname;
     const [navbarOpen, setNavbarOpen] = useState(false);
+
+    const { cart } = useSelector( (state) => state.carts );
     
     return (
         <div className={`h-[70px] bg-custom-gradient text-white z-50 flex items-center sticky top-0 bg-gray-700 `}>
@@ -62,18 +64,25 @@ const NavBar = () => {
                 </li>
 
                 <li className="font-[500] transition-all duration-150">
-                   <Link className={`${
-                    path === "/cart" ? "text-white font-semibold" : "text-gray-200"
-                   }`}
-                    to="/cart">
-                        <Badge
+                   <Link to="/cart" className={`${ path === "/cart" ? "text-white font-semibold" : "text-gray-200" }`}>
+
+                        <div className='flex'>
+                            <div className='mt-3'><FaShoppingCart size={25} /></div>
+                            <div className='bg-white text-2xl pr-2 pl-1 text-cyan-600 rounded-lg border-4 border-amber-200'>
+                                { cart?.length || 0 }
+                            </div>
+                        </div>
+
+
+                        {/* <Badge 
                             showZero
-                            badgeContent={0}
-                            color="primary"
+                            badgeContent={ cart?.length || 0 }
+                            color="secondary"
                             overlap="circular"
-                            anchorOrigin={{ vertical: 'top', horizontal: 'right', }}>
+                            anchorOrigin={{ vertical: 'top', horizontal: 'right'}}>
                                 <FaShoppingCart size={25} />
-                        </Badge>
+                        </Badge> */}
+
                    </Link> 
                 </li>
 

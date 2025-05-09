@@ -28,7 +28,21 @@ function App() {
         </Routes>
     </Router>
 
-    <Toaster position='top-right' />
+    <Toaster position='top-center'   
+              toastOptions={{
+                    className: '',
+                    duration: 4000,
+                    removeDelay: 2000,
+                    style: {
+                      background: '#FDFDFD',
+                      color: '#222222',
+                      padding:'20px 30px',
+                      border: '4px #945272 solid',
+                      fontSize:'1.5rem',
+                      marginTop:'70px',
+                      }
+                    }} />
+
     </React.Fragment>
 
 
