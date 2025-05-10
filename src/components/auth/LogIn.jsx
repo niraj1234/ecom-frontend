@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineLogin } from "react-icons/ai";
 import InputField from "../shared/InputField";
 import Spinners from "../shared/Spinners";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { authenticateSignInUser } from "../../store/actions";
 
 
 
@@ -11,15 +14,22 @@ import Spinners from "../shared/Spinners";
 const LogIn = () => {
 
     const navigate = useNavigate();
-    const [ loader, setLoader ] = useState(true);
+    const dispatch = useDispatch();
+    const [ loader, setLoader ] = useState(false);
 
-    const { register , handleSubmit , formState:{errors}, } = useForm({
+    const { 
+        register, 
+        handleSubmit,
+        reset,
+        formState: { errors },     
+    } = useForm({
         mode:"onTouched",
     });
 
 
     const loginHandler = async (data) => {
         console.log("Login Check " , data);
+        dispatch(authenticateSignInUser(data, toast, reset, navigate, setLoader));
     }
 
 
@@ -62,6 +72,7 @@ const LogIn = () => {
             <button
                 disabled={loader}
                 className=" bg-cyan-800 flex gap-2 items-center justify-center font-semibold text-white text-[1.3rem] w-full py-3 hover:bg-cyan-900 transition-colors duration-100 rounded-sm mt-6"
+//                className="flex items-center w-full  mt-5 space-x-2 px-4 py-[6px] bg-gradient-to-r from-purple-600 to-red-500 text-white font-semibold rounded-md shadow-lg   hover:from-purple-500 hover:to-red-400   duration-300 ease-in-out transform "
                 type="submit">
                 {loader ? (
                     <>
