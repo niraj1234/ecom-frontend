@@ -10,7 +10,7 @@ const cartItems = localStorage.getItem("cartItems")
 
 // Loading user from local storage
 const user = localStorage.getItem("auth") 
-            ? JSON.parse(localStorage.getItem("auth")) : [];
+            ? JSON.parse(localStorage.getItem("auth")) : null ;
 
 const initialState = {
     carts: {cart: cartItems },
