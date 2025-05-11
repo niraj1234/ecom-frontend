@@ -20,9 +20,9 @@ const NavBar = () => {
     return (
         <div className={`h-[70px] bg-custom-gradient text-white z-50 flex items-center sticky top-0 bg-gray-700 `}>
             <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between">
-                <Link to="/" className="flex items-center text-2xl font-bold">
+                <Link to="/" className="flex items-center ">
                     <FaStore className="mr-2 text-3xl" />
-                    <span className="font-[Montserrat] bg-gray-500 px-6 py-2 rounded-md">Meri Dukaan</span>
+                    <span className="font-[Montserrat] bg-cyan-700 text-white text-2xl font-bold px-6 py-1 ml-[10px] rounded-t-2xl border-b-8 border-b-amber-400">Meri Dukaan</span>
                 </Link>
 
             <ul className={`flex sm:gap-10 gap-4 sm:items-center  text-slate-800 sm:static absolute left-0 top-[70px] sm:shadow-none shadow-md ${

@@ -179,5 +179,14 @@ export const registerNewUser
 };
 
 
+export const logOutUser = (navigate) => (dispatch) => {
+    dispatch( {type: "LOG_OUT"});
+    localStorage.removeItem("auth");
+    navigate("/login")
+};
+
+
+
+
 
 

@@ -5,6 +5,7 @@ import { FaIoxhost, FaShoppingCart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import BackDrop from './BackDrop';
+import { logOutUser } from '../store/actions';
 //import { logOutUser } from '../store/actions';
 
 const UserMenu = () => {
@@ -22,7 +23,7 @@ const UserMenu = () => {
     };
 
     const logOutHandler = () => {
-//        dispatch(logOutUser(navigate));
+        dispatch(logOutUser(navigate));
       };
   
     return (
