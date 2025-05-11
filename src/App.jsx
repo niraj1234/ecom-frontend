@@ -12,6 +12,7 @@ import Cart from './components/cart/Cart';
 import LogIn from './components/auth/Login';
 import PrivateRoute from './components/PrivateRoute';
 import Footer from './components/shared/Footer';
+import Register from './components/auth/Register';
 
 
 const notify = () => toast('This is your Toast !');
@@ -31,6 +32,7 @@ function App() {
 
           <Route path='/' element={<PrivateRoute publicPage />}>
             <Route path='/login' element={ <LogIn />}/>
+            <Route path='/register' element={ <Register />}/>
           </Route>
         </Routes>
         

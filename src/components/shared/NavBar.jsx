@@ -69,8 +69,8 @@ const NavBar = () => {
                    <Link to="/cart" className={`${ path === "/cart" ? "text-white font-semibold" : "text-gray-200" }`}>
 
                         <div className='flex'>
-                            <div className='mt-3'><FaShoppingCart size={25} /></div>
-                            <div className='bg-white text-2xl pr-2 pl-1 text-cyan-600 rounded-lg border-4 border-amber-200'>
+                            <div className='mt-3 mr-[-5px]'><FaShoppingCart size={25} /></div>
+                            <div className='bg-white text-2xl px-3  text-cyan-500 rounded-full border-4 border-rose-400'>
                                 { cart?.length || 0 }
                             </div>
                         </div>

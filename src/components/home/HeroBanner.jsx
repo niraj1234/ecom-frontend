@@ -35,7 +35,6 @@ const HeroBanner = () => {
             {bannerList.map((item, i) => (
                 <SwiperSlide key={item.id}>
                     <div className={`carousel-item rounded-md sm:h-[450px] h-96 ${colors[i]} `}>
-                        { console.log("Value of I ====>", colors[i])}
                         
                         <div className='flex items-center justify-center'>
                             <div className='hidden lg:flex justify-center w-1/4 p-4 bg-fuchsia-800 rounded-3xl'>
